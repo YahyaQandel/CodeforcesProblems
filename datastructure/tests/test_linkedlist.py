@@ -1,5 +1,5 @@
 import unittest
-from algorithms.src.Linkedlist import LinkedList
+from datastructure.src.Linkedlist import LinkedList
 
 
 class LinkedInTest(unittest.TestCase):
@@ -59,16 +59,12 @@ class LinkedInTest(unittest.TestCase):
         self.linkedlist.add_back(3)
         self.linkedlist.add_back(4)
         self.linkedlist.add_back(5)
-        # print(self.linkedlist)
         self.linkedlist.reverse()
-        print(self.linkedlist)
         self.assertEqual(self.linkedlist.get_first(), 5)
 
     def testReverseEdgeCaseWithOneElement(self):
         self.linkedlist.add_back(1)
-        # print(self.linkedlist)
         self.linkedlist.reverse()
-        print(self.linkedlist)
         self.assertEqual(self.linkedlist.get_first(), 1)
 
     def testMergeTwoLists(self):
@@ -101,7 +97,6 @@ class LinkedInTest(unittest.TestCase):
         self.linkedlist.add_back(2)
         self.linkedlist.add_back(1)
         self.assertTrue(self.linkedlist.is_palindrome())
-
 
 
 def tearDown(self):
