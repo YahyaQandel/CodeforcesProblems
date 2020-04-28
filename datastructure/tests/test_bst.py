@@ -30,4 +30,34 @@ class BSTTest(unittest.TestCase):
         self.bst.insert(4, 4600)
         self.bst.insert(8, 893)
 
-        self.assertEqual(self.bst.min(), 1900)
+        self.assertEqual(self.bst.min().value, 1900)
+
+    def testDeleteNoChildren(self):
+        self.bst.insert(6, 6234)
+        self.bst.insert(10, 1100)
+        self.bst.insert(7, 7300)
+
+        # Case 1 :- no children
+        self.bst.delete(7)
+        self.assertEqual(None, self.bst.get(7))
+
+    def testDeleteOneChild(self):
+        self.bst.insert(6, 6234)
+        self.bst.insert(10, 1100)
+        self.bst.insert(7, 7300)
+
+        # Case 1 :- no children
+        self.bst.delete(10)
+        self.assertEqual(self.bst.get(6), 6234)
+        self.assertEqual(None, self.bst.get(10))
+
+    def testDeleteTwoChildren(self):
+        self.bst.insert(7, 7300)
+        self.bst.insert(10, 1100)
+        self.bst.insert(6, 6234)
+
+        # Case 1 :- no children
+        self.bst.delete(7)
+        self.assertEqual(self.bst.get(7), None)
+        self.assertEqual(6234, self.bst.get(6))
+        self.assertEqual(1100, self.bst.get(10))

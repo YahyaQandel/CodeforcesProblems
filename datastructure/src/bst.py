@@ -32,7 +32,7 @@ class Bst:
 
     def get_min(self, node):
         if not node.left:
-            return node.value
+            return node
         else:
             min = self.get_min(node.left)
 
@@ -48,6 +48,35 @@ class Bst:
 
         return node
 
+    def delete(self, key):
+        self.root = self.delete_node(self.root, key)
+
+    def delete_node(self, node, key):
+
+        # base case
+        if not node:
+            return node
+        if key < node.key:
+            node.left = self.delete_node(node.left, key)
+        elif key > node.key:
+            node.right = self.delete_node(node.right, key)
+
+        else:
+            if not node.left and not node.right:
+                node = None
+
+            elif not node.left:
+                node = node.right
+            elif not node.right:
+                node = node.left
+
+            else:
+                min_node = self.get_min(node.right)
+                node.key = min_node.key
+                node.value = min_node.value
+
+                node.right = self.delete_node(node.right, node.key)
+        return node
 
 class Node:
     def __init__(self, key, value):
