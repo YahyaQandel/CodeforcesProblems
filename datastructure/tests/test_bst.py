@@ -61,3 +61,36 @@ class BSTTest(unittest.TestCase):
         self.assertEqual(self.bst.get(7), None)
         self.assertEqual(6234, self.bst.get(6))
         self.assertEqual(1100, self.bst.get(10))
+
+    def testInOrderTraversal(self):
+        self.bst.insert(10, "b")
+        self.bst.insert(7, "c")
+        self.bst.insert(6, "a")
+        self.bst.insert(8, "k")
+        self.bst.insert(12, "d")
+        self.bst.insert(11, "e")
+        self.bst.insert(13, "f")
+
+        self.bst.in_order_traversal()
+
+    def testPreOrderTraversal(self):
+        self.bst.insert(10, "b")
+        self.bst.insert(7, "c")
+        self.bst.insert(6, "a")
+        self.bst.insert(8, "k")
+        self.bst.insert(12, "d")
+        self.bst.insert(11, "e")
+        self.bst.insert(13, "f")
+
+        self.bst.pre_order_traversal()
+
+    def testPostOrderTraversal(self):
+        self.bst.insert(10, "b")
+        self.bst.insert(7, "c")
+        self.bst.insert(6, "a")
+        self.bst.insert(8, "k")
+        self.bst.insert(12, "d")
+        self.bst.insert(11, "e")
+        self.bst.insert(13, "f")
+
+        self.bst.post_order_traversal()

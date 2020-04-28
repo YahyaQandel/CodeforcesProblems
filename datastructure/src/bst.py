@@ -78,6 +78,37 @@ class Bst:
                 node.right = self.delete_node(node.right, node.key)
         return node
 
+    def in_order_traversal(self):
+
+        self.i_o_t(self.root)
+
+    def i_o_t(self, node):
+        if node:
+            self.i_o_t(node.left)
+            print(node.key)
+            self.i_o_t(node.right)
+
+    def pre_order_traversal(self):
+
+        self.pre_o_t(self.root)
+
+    def pre_o_t(self, node):
+        if node:
+            print(node.key)
+            self.pre_o_t(node.left)
+            self.pre_o_t(node.right)
+
+    def post_order_traversal(self):
+
+        self.post_o_t(self.root)
+
+    def post_o_t(self, node):
+        if node:
+            self.post_o_t(node.left)
+            self.post_o_t(node.right)
+            print(node.key)
+
+
 class Node:
     def __init__(self, key, value):
         self.key = key
