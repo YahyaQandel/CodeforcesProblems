@@ -94,3 +94,14 @@ class BSTTest(unittest.TestCase):
         self.bst.insert(13, "f")
 
         self.bst.post_order_traversal()
+
+    def testConvertSortedArrayToBst(self):
+        sorted_array = [-10, -3, 0, 5, 9]
+        root = self.bst.convert_sorted_array(sorted_array)
+        # expected [0, -3, 9, -10, null, 5]
+        self.assertEqual(root.value, 0)
+        self.assertEqual(root.left.value, -3)
+        self.assertEqual(root.right.value, 9)
+        self.assertEqual(root.left.left.value, -10)
+        self.assertEqual(root.left.right, None)
+        self.assertEqual(root.right.left.value, 5)

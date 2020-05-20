@@ -108,9 +108,26 @@ class Bst:
             self.post_o_t(node.right)
             print(node.key)
 
+    def convert_sorted_array(self, array):
+        if not array:
+            return None
+
+        mid = int(len(array) / 2)
+
+        node = Node(None, array[mid])
+        node.left = self.convert_sorted_array(array[:mid])
+        node.right = self.convert_sorted_array(array[mid+1:])
+
+        return node
+
+    def c_s_a(self,array):
+        if not array:
+            return []
+
+
 
 class Node:
-    def __init__(self, key, value):
+    def __init__(self, key=None, value=None):
         self.key = key
         self.value = value
         self.left = None
